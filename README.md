@@ -10,9 +10,9 @@ This repository contains the complete audit, verified inventory, architectural b
 
 | Document | Purpose & Content |
 | :--- | :--- |
-| **[`EXISTING-INVENTORY.md`](./EXISTING-INVENTORY.md)** | Grounded baseline audit verifying the 42 installed plugins, 20 active MCP servers, and 41 global skills. |
+| **[`EXISTING-INVENTORY.md`](./EXISTING-INVENTORY.md)** | Grounded baseline audit verifying the 42 installed plugins, 20 active MCP servers, and 51 global skills. |
 | **[`MISSING-CAPABILITIES.md`](./MISSING-CAPABILITIES.md)** | Gap analysis identifying high-leverage capabilities missing from the starting baseline and evaluated candidates. |
-| **[`NEW-SKILLS.md`](./NEW-SKILLS.md)** | Comprehensive searchable index of all 41 installed global skills (Anthropic, OpenAI, Superpowers, Vercel, UI/UX Studio). |
+| **[`NEW-SKILLS.md`](./NEW-SKILLS.md)** | Comprehensive searchable index of all 51 installed global skills (Get Shit Done, Roo Code, Ralph Loop, CodeRabbit, Anthropic, OpenAI, Superpowers, Vercel, UI/UX Studio). |
 | **[`RESOURCE-GUARDIAN-REPORT.md`](./RESOURCE-GUARDIAN-REPORT.md)** | **[NEW]** Complete engineering report, test battery results, and telemetry analysis for the custom `antigravity-resource-guardian`. |
 | **[`NEW-MCP-SERVERS.md`](./NEW-MCP-SERVERS.md)** | MCP server evaluation, architectural analysis (Serena, GitHub MCP, remote SSE), and integration guidance. |
 | **[`AGENT-ARCHITECTURE.md`](./AGENT-ARCHITECTURE.md)** | Multi-agent coordination matrix establishing the 15 unified specialist agent roles, budgets, and delegation rules. |
@@ -31,6 +31,6 @@ This repository contains the complete audit, verified inventory, architectural b
 - **Hardware Profile:** AMD Ryzen 3 (4 Cores / 8 Logical Threads), 7.19 GB Physical RAM, 512 GB SSD (C: Drive: 202.8 GB partition, 51.7 GB free)
 - **Node.js Environment:** v24.16.0 (npm/npx v11.13.0)
 - **Git Version:** v2.54.0.windows.1
-- **Installed Global Skills:** 41 Verified Skills across Documents, QA/TDD, Security, UI/UX, Meta-Engineering, and DevOps.
+- **Installed Global Skills:** 51 Verified Skills across GSD, Roo Code, Ralph Loop, CodeRabbit, Documents, QA/TDD, Security, UI/UX, Meta-Engineering, and DevOps.
 - **Specialist Multi-Agent System:** 15 Formal Specialist Roles Governed by Central Orchestration and Resource Management.
 - **Resource Footprint:** 0 MB persistent background daemon memory added.
