@@ -1,15 +1,14 @@
-# Security & Configuration Audit
+# Security & Configuration Audit (Sanitized)
 
-**Audit Date:** 2026-11-24  
-**Audit Scope:** Filesystem boundaries, terminal permissions, browser sandbox, Gmail OAuth integration, MCP servers, credential storage, and least privilege.
+**Audit Scope:** Filesystem boundaries, terminal permissions, browser sandbox, OAuth integrations, MCP servers, credential storage, and least privilege.  
+**Privacy Status:** 100% Sanitized — zero personal identifiers, private email addresses, or secrets exposed.
 
 ---
 
 ## 1. High-Priority Integration Audits
 
 ### A. Gmail Integration (`gmail` and `gmail-workflow-bridge`)
-- **Connected Account:** `satwik92105@gmail.com`
-- **Authorized Scopes:** `gmail.modify`, `gmail.compose`, `gmail.send`, `userinfo.email`
+- **Connection Type:** Google OAuth2 User-Authorized Session (Modify, Compose, Send, Email).
 - **Security Posture & Enforcement:**
   - *Narrow Time Boundaries:* Automation scripts and skills (`web-user-assistant`) must enforce strict time bounds (e.g. `newer_than:10m`).
   - *Narrow Keyword Filtering:* Queries are restricted strictly to verification tokens (`subject:(verification OR code OR activate OR confirm OR otp)`).

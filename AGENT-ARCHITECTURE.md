@@ -1,65 +1,75 @@
-# Unified Multi-Agent Architecture & Specialist Matrix
+# Unified Multi-Agent Architecture & Specialist Matrix (Phase 2)
 
-**Objective:** Consolidate native Antigravity Swarm, EGM personas, and specialized subagents into a unified, high-precision engineering organization without redundant orchestrators.
-
----
-
-## 1. Specialist Agents Matrix (13 Core Roles)
-
-All 13 specialist roles requested by the user are formally defined, mapped to operational subagents, and bound to specific toolsets and completion criteria.
-
-| Specialist Role | Bound Subagent / Persona | Primary Responsibilities | Tool Permissions | Completion Criteria |
-| :--- | :--- | :--- | :--- | :--- |
-| **1. Principal Architect** | `egm-design` & `ai-architect` | System architecture, scalability, infrastructure economics, unmitigated risk analysis, technology selection. | Read-only, web research, file inspection. | Actionable architecture spec or RFC with tradeoffs and risks identified. |
-| **2. Research Specialist** | `research` subagent | Deep codebase surveying, documentation search, web intelligence gathering, library comparison. | Read-only sandbox, web search, doc tools. | Comprehensive findings document citing exact sources, versions, and APIs. |
-| **3. Senior Full-Stack Developer** | `senior-fullstack-dev` *(Defined)* | End-to-end feature implementation, following Ponytail (smallest working diff), preserving error handling. | Full filesystem writes, CLI execution, MCP tools. | Clean implementation matching contracts, passes tests, zero extraneous code. |
-| **4. Frontend Specialist** | `uiux-architect` | Modern UI engineering, React 19 composition, responsive layouts, micro-interactions, dark mode polish. | Workspace write, Shadcn MCP, UI tools. | Bespoke responsive UI conforming to Web Interface Guidelines. |
-| **5. Backend Specialist** | `senior-fullstack-dev` / `vercel-services` | API endpoints, authentication guards, serverless functions, Queues, Workflows, data serialization. | Workspace write, CLI, Vercel/Firebase tools. | Hardened endpoints with Zod validation, error handling, and test coverage. |
-| **6. UI/UX Specialist** | `uiux-architect` & `mobbin` | Aesthetic benchmarking against Linear/Stripe, typography hierarchy, Bento grids, luminous micro-borders. | Mobbin MCP, Figma MCP, 21st-dev MCP. | Verified design tokens, contrast compliance, and benchmark alignment. |
-| **7. Database Specialist** | `database-specialist` *(Defined)* | Schema normalization (SQL/NoSQL), index optimization, BigQuery datasets, migration scripts. | Workspace write, BigQuery/Jupyter MCP. | Validated schema definitions, rollback-safe migrations, zero N+1 queries. |
-| **8. Security Auditor** | `web-sec-auditor` & `user-journey-auditor` | OWASP Top 10 SAST audits, BOLA/BFLA checks, security threat modeling, secret scanning. | Static analyzers, endpoint inspection. | Security audit report with CWE/CVSS mapping and verified code fixes. |
-| **9. QA Engineer** | `qa-engineer` *(Defined)* | Test-Driven Development (TDD), unit/integration/E2E test suites, edge case boundary coverage. | Test execution CLI, Playwright MCP. | Test suite executed; evidence log showing all passing assertions. |
-| **10. Performance Engineer** | `performance-optimizer` | Core Web Vitals, bundle size reduction, memory leak isolation, CDN caching, database query plans. | Chrome DevTools MCP, profiling tools. | Quantified metric improvement (LCP, memory footprint, bundle reduction). |
-| **11. DevOps Specialist** | `deployment-expert` | CI/CD pipelines, preview URLs, environment variables, Vercel/Cloudflare deployments, build optimization. | Vercel CLI, Cloudflare deploy skill. | Successful deployment build verified live via HTTP status checks. |
-| **12. Documentation Specialist** | `egm-style` & `egm-structural` | Clear, concise documentation, API references, READMEs, changelogs, and Architecture Decision Records (ADRs). | Markdown formatting, docx/pdf skills. | Structured documentation with zero AI fluff, verified code examples. |
-| **13. Debugging Specialist** | `debugging-specialist` *(Defined)* | Systematic hypothesis-driven root-cause debugging, stack trace analysis, memory heap inspection. | Runtime CLI, Chrome DevTools MCP. | Minimal reproducing test case passing after root-cause fix in shared code. |
+**Objective:** Consolidate Antigravity's native coordination mechanisms into a high-precision, 15-role specialist engineering organization with strict resource budgeting.
 
 ---
 
-## 2. Delegation & Communication Protocol
+## 1. Specialist Agents Matrix (15 Core Roles)
+
+All 15 specialist roles are formally defined, mapped to operational subagents or personas, and governed by resource limits and verification rules.
+
+| Specialist Role | Registered Subagent / Persona | Primary Focus & Domain | Tool Access | Resource Budget | Verification Standard |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **1. Software Architect** | `egm-design` & `ai-architect` | High-level system architecture, scalability, technology stack boundaries, and trade-off analysis. | Read-only, Web search, Doc tools | $\le 100\text{ MB}$ | Architectural RFC or ADR citing concrete trade-offs and failure modes. |
+| **2. Senior Full-Stack Developer** | `senior-fullstack-dev` | Feature implementation following Ponytail (smallest working diff), preserving error boundaries. | Full Filesystem, CLI, MCP tools | $\le 250\text{ MB}$ | Passes all test suites; zero extraneous wrappers or unrequested dependencies. |
+| **3. Frontend Developer** | `uiux-architect` | Modern frontend engineering, React 19 composition, responsive layouts, micro-interactions, dark mode. | Workspace writes, Shadcn MCP, UI tools | $\le 200\text{ MB}$ | Responsive layout tested across breakpoints; Web Interface Guidelines compliant. |
+| **4. Backend Developer** | `senior-fullstack-dev` / `vercel-services` | REST/GraphQL APIs, auth middleware, edge functions, queuing, background workflows, data serialization. | Workspace writes, CLI, Serverless tools | $\le 200\text{ MB}$ | Endpoints hardened with Zod validation, sanitized errors, and contract tests. |
+| **5. Database Specialist** | `database-specialist` | Normalized SQL/NoSQL schemas, index optimization, query plans, BigQuery datasets, safe migrations. | Workspace writes, BigQuery/Notebook MCP | $\le 150\text{ MB}$ | Validated schema definitions; rollback-tested migration scripts; zero N+1 queries. |
+| **6. Cybersecurity Reviewer** | `cybersecurity-reviewer` & `web-sec-auditor` | STRIDE threat modeling, OWASP Top 10 SAST audits, BOLA/BFLA guards, dependency vulnerability scans. | Static code analyzers, Endpoint inspectors| $\le 100\text{ MB}$ | Comprehensive security audit report mapping findings to CWE/CVSS with verified fixes. |
+| **7. QA Engineer** | `qa-engineer` | Test-Driven Development (TDD) enforcement, unit/integration test suites, edge case boundary coverage. | Test execution CLI, Test frameworks | $\le 200\text{ MB}$ | Failing test written first, verified failing, then verified passing with terminal log. |
+| **8. Test Automation Engineer** | `test-automation-engineer` | Resilient Playwright E2E browser automation, API contract tests, visual regression, CI test pipelines. | Playwright MCP, Headless browser | $\le 300\text{ MB}$ (Gated) | E2E suite executed cleanly; browser context closed immediately after test run. |
+| **9. Performance Engineer** | `performance-optimizer` | Core Web Vitals (LCP, CLS, INP), bundle size reduction, memory leak isolation, CDN caching strategies. | Chrome DevTools MCP, Profiling tools | $\le 250\text{ MB}$ | Quantified performance metrics (LCP improvement, heap snapshot reduction). |
+| **10. DevOps Engineer** | `deployment-expert` | CI/CD pipelines, preview URLs, environment variables, Vercel/Cloudflare deployments, build optimization. | Vercel CLI, Cloudflare deploy skill | $\le 200\text{ MB}$ | Production/preview deployment live and verified via HTTP 200 health check. |
+| **11. Documentation Specialist** | `egm-style` & `egm-structural` | Concise technical documentation, API references, READMEs, changelogs, and Architecture Decision Records. | Markdown formatting, docx/pdf skills | $\le 50\text{ MB}$ | Structured docs with zero AI fluff; all code samples verified against codebase. |
+| **12. Research Specialist** | `research` subagent | Deep codebase surveying, documentation search, web intelligence gathering, library comparison. | Read-only sandbox, web search | $\le 50\text{ MB}$ | Structured findings document citing exact documentation URLs, versions, and APIs. |
+| **13. Debugging Specialist** | `debugging-specialist` | Hypothesis-driven root-cause debugging, stack trace analysis, memory heap inspection. | Runtime CLI, Chrome DevTools MCP | $\le 150\text{ MB}$ | Minimal reproducing test case isolated; root-cause fix verified in shared primitives. |
+| **14. UI/UX Specialist** | `uiux-architect` & `mobbin` | Aesthetic benchmarking against Linear/Stripe, typography hierarchy, Bento grids, luminous micro-borders. | Mobbin MCP, Figma MCP, 21st-dev MCP | $\le 150\text{ MB}$ | Verified design tokens, contrast compliance, and benchmark alignment. |
+| **15. Resource Manager** | `resource-manager` | Enforces `antigravity-resource-guardian`, monitors RAM/SSD/CPU budgets, cancels runaway jobs, gates heavy tasks. | PowerShell execution, CIM queries | $\le 25\text{ MB}$ | Host RAM kept within budget; pre-task checks executed before heavy workloads. |
+
+---
+
+## 2. Central Orchestration & Execution Protocol
 
 ```mermaid
 flowchart TD
-    User([User Prompt]) --> Coordinator[Main Agent / Coordinator]
+    User([User Prompt]) --> Coord[Central Orchestrator / Main Agent]
     
-    subgraph Planning ["Stage 1: Planning & Architecture"]
-        Coordinator -->|Requirements| GSD["GSD / PRD Loop"]
-        GSD --> Arch["Principal Architect (egm-design)"]
-        Arch --> Threat["Security Threat Modeling"]
+    subgraph Gate ["Stage 0: Resource Budget Gate"]
+        Coord --> RG["Resource Manager (antigravity-resource-guardian)"]
+        RG -->|RAM < 50% or Available > 500MB| Approved[Workload Approved]
+        RG -->|RAM > 50% or Free < 500MB| Sequential[Throttle to Sequential Execution]
     end
 
-    subgraph Implementation ["Stage 2: Test-Driven Implementation"]
-        Threat --> QA["QA Engineer (Write Failing Test)"]
-        QA --> Dev["Senior Full-Stack Dev (Minimal Code)"]
+    subgraph Phase1 ["Stage 1: Architecture & Planning"]
+        Approved --> Plan["Planning & Brainstorming (writing-plans, brainstorming)"]
+        Sequential --> Plan
+        Plan --> Arch["Software Architect (egm-design)"]
+        Arch --> Threat["Cybersecurity Reviewer (security-threat-model)"]
+    end
+
+    subgraph Phase2 ["Stage 2: Test-Driven Implementation"]
+        Threat --> QA["QA Engineer (test-driven-development: Write Failing Test)"]
+        QA --> Dev["Senior Full-Stack Dev (Minimal Code Implementation)"]
         Dev --> TDDVerify{"Test Passes?"}
-        TDDVerify -- No --> Debug["Debugging Specialist"]
+        TDDVerify -- No --> Debug["Debugging Specialist (systematic-debugging)"]
         Debug --> Dev
-        TDDVerify -- Yes --> Review["Stage 3: Review & Polish"]
+        TDDVerify -- Yes --> Polish["Stage 3: Review & Verification"]
     end
 
-    subgraph Review ["Stage 3: Review & Polish"]
-        Review --> CR["Code Reviewer (CodeRabbit)"]
-        Review --> SecAud["Security Auditor (OWASP)"]
-        Review --> UIUX["UI/UX Specialist (Web Design Guidelines)"]
+    subgraph Phase3 ["Stage 3: Review & Verification"]
+        Polish --> CR["Code Reviewer (CodeRabbit / requesting-code-review)"]
+        Polish --> SecAudit["Cybersecurity Reviewer (OWASP SAST Audit)"]
+        Polish --> Perf["Performance Engineer (Lighthouse / Heap Audit)"]
     end
 
-    Review --> Verif["Verification Before Completion"]
-    Verif --> Coordinator
-    Coordinator --> UserResponse([Verified Delivery])
+    Phase3 --> FinalProof["Verification Before Completion (Command Execution Proof)"]
+    FinalProof --> Coord
+    Coord --> Cleanup["Resource Guardian Cleanup (Close Headless Browsers)"]
+    Cleanup --> Deliver([Delivered Solution to User])
 ```
 
 ### Delegation Rules:
-1. **Evidence Before Assertions:** No subagent may report a task "done" without including the terminal command run and its stdout/stderr confirming success.
-2. **Strict Scope Bounding:** Subagents must touch only files directly within their delegated slice. Unrelated refactoring is strictly prohibited.
-3. **Least Privilege:** Research and audit personas operate in read-only mode. Only implementation and devops agents hold write permissions.
-4. **Parallel Execution Discipline:** Parallel subagents (`invoke_subagent` or `swarm`) are spawned **only** for strictly independent tasks with no shared state or sequential dependency.
+1. **Pre-Flight Gating:** The Central Orchestrator must query the `resource-manager` before spawning browser automation or multi-agent swarms.
+2. **Evidence Before Assertions:** No specialist agent may report a task "done" without including the terminal command run and its stdout/stderr confirming success.
+3. **Strict Scope Bounding:** Specialists must touch only files directly within their delegated slice.
+4. **Immediate Teardown:** Headless browser instances and temporary build workers must be terminated immediately upon task completion.

@@ -1,38 +1,45 @@
-# Resource Optimization & 8 GB RAM Efficiency Blueprint
+# Resource Optimization & 8 GB RAM Efficiency Blueprint (Phase 2)
 
 **Host Machine Telemetry:**
-- **Total Physical RAM:** 7.19 GB
-- **Baseline Memory Utilization:** ~90.6% (Used: ~6.52 GB, Available: ~670 MB)
-- **Primary Operational Goal:** Maximum practical capability with zero background RAM creep, preventing OS paging and application freezing.
+- **Host Architecture:** AMD Ryzen 3 (4 Cores / 8 Logical Threads)
+- **Total Physical RAM:** 7.19 GB (~8 GB physical)
+- **Baseline Memory Utilization:** ~92.4% (Used: ~6.64 GB, Available: ~550 MB)
+- **SSD Storage (C:):** 202.8 GB total, 151.1 GB used (74.5%), 51.7 GB free (25.5% free buffer)
+- **Primary Operational Directive:** Maximize practical capability without adding persistent background memory overhead, keeping Antigravity's incremental footprint within a $\le 512\text{ MB}$ budget.
 
 ---
 
-## 1. Core Optimization Decisions
+## 1. Grounded Host Baseline vs. Agent Budget
 
-### Decision 1: Stateless, File-Based Skill Architecture
-- *Mechanism:* Skills installed into `~/.gemini/config/skills/` are purely static markdown files (`SKILL.md`) and lightweight helper scripts.
-- *Memory Footprint:* **0 MB background RAM.**
-- *Behavior:* The agent loads only the name and description into context at startup. The full body is read on-demand during active tasks, consuming zero memory when idle.
+Windows 11 and host background processes typically consume $5.5–6.5\text{ GB}$ of RAM on 8 GB systems.
+Attempting to enforce an absolute $50\%$ total-system RAM limit on an active Windows desktop is physically impossible without killing OS processes.
 
-### Decision 2: Elimination of Persistent Background Daemons
-- External agent runtimes (such as CrewAI workers, LangGraph FastAPI servers, or Dockerized sandboxes) constantly run Python or Node daemons that consume 200–800 MB each.
-- In contrast, Antigravity’s native Subagents and Swarm run within the existing process event loop, adding **0 additional persistent processes**.
-
-### Decision 3: On-Demand Stdio & Remote Streamable HTTP MCPs
-- Rather than keeping multiple background database or browser servers running, tools like Playwright and Chrome DevTools MCP spawn child processes **only when a tool call is executed**.
-- Remote MCP servers (`21st-dev`, `ui-skills`) offload computation to cloud endpoints over HTTPS, consuming **0 MB local RAM**.
-
-### Decision 4: Rejection of Duplicate Local Browser Engines
-- Competing browser automation frameworks (`browser-use`, `Skyvern`) each launch separate Chromium instances (150–300 MB RAM per instance).
-- By standardizing strictly on the installed **Playwright** (25 tools) and **Chrome DevTools** (33 tools), browser processes are shared cleanly and terminated when sessions complete.
-
-### Decision 5: Deduplication of Identical MCP Tool Schemas
-- Discovered and flagged `science_biomolecular_structure_viewer_mcp`, which duplicated `structural-biology_structure_viewer_mcp`. Ensuring only one authoritative server is registered saves schema parsing overhead.
+Instead, the **Antigravity Resource Guardian** implements a **Calibrated Host Budget**:
+1. **Incremental Agent Budget:** Antigravity's active process working set (Node.js + Python + PowerShell) is capped at $\le 512\text{ MB}$.
+2. **Dynamic Workload Gating:**
+   - If Available RAM $> 600\text{ MB}$: Standard single-agent workflows proceed normally.
+   - If Available RAM is $300–600\text{ MB}$: High caution; no background parallel agents; sequential tool execution only.
+   - If Available RAM $< 300\text{ MB}$: Throttled; heavy tasks (browsers, builds) are paused; session progress saved to disk.
+3. **No Phantom Daemons:** Every newly integrated capability is purely file-based (`SKILL.md`) or on-demand stdio, adding **0 MB persistent background RAM**.
 
 ---
 
-## 2. Recommended Runtime Guidelines for the User
+## 2. Process Footprint Audit (Measured Real-Time)
 
-1. **Keep Background Apps Lean:** When running heavy multi-agent workflows, close memory-heavy browser tabs or unused electron apps on the host to keep available RAM above 1 GB.
-2. **Use Vercel Sandbox for Heavy Builds:** When building large Next.js projects or running extensive test suites, leverage the `offload-to-sandbox` skill to run builds on ephemeral Vercel microVMs instead of local CPU/RAM.
-3. **Avoid Unnecessary Local LLMs:** Do not run local Ollama or HuggingFace models on this machine while Antigravity is active. Use cloud API endpoints (Gemini, Claude, OpenAI) to preserve host memory.
+From the Resource Guardian telemetry benchmark on the host machine:
+- **Node.js Subprocesses:** ~173.5 MB
+- **Chromium Browsers:** ~1,765.9 MB (host browser tabs + active MCP sessions)
+- **PowerShell Runtime:** ~158.2 MB
+- **Python Telemetry Engine:** ~0 MB (exits immediately after execution)
+- **Antigravity Core Overhead:** $< 350\text{ MB}$ total.
+
+---
+
+## 3. Storage & Thermal Protection Rules
+
+1. **Storage Target:** Keep C: drive utilization $< 80\%$ (maintain $> 15\text{ GB}$ free).
+   - *Current State:* 51.7 GB free (safely above the 15 GB minimum threshold).
+   - Before large `npm install` or `git clone` operations, run pre-flight checks to estimate disk footprint.
+2. **CPU & Thermal Mitigation:**
+   - Ryzen 3 has 4 physical cores. Avoid running multi-threaded test runners with unlimited workers.
+   - Constrain test execution to sequential or 2-worker limits (`--maxWorkers=2`).

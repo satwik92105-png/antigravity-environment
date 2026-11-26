@@ -1,51 +1,99 @@
-# Disaster Recovery & Complete Rollback Guide
+# Surgical Disaster Recovery & Rollback Procedure
 
-If you ever wish to completely revert the additions made during this mission back to your exact initial baseline, follow the procedures outlined below.
+**Critical Safety Directive:** Never use a global remove-all command (`npx skills remove --all`) or delete the entire `~/.gemini/config/skills/` directory. Doing so would destroy pre-existing skills and configurations.
 
----
-
-## 1. Automated Rollback Command
-
-To remove all newly installed global skills in a single command, execute in PowerShell:
-
-```powershell
-npx skills remove --global --all -y
-```
-
-This will automatically unregister and delete the newly copied skills from `C:\Users\HP\.gemini\config\skills\`.
+Follow the surgical rollback procedure below, which removes **strictly and exclusively** the 51 skills and components introduced by this expansion mission.
 
 ---
 
-## 2. Manual Surgical Rollback
+## 1. Automated Surgical Rollback Script
 
-If you prefer to manually remove the changes step-by-step:
+To remove only the components introduced during this mission, execute this targeted PowerShell script:
 
-### Step 1: Remove Global Skills Directory
-Remove the newly installed skills directory:
 ```powershell
-Remove-Item -Recurse -Force "C:\Users\HP\.gemini\config\skills"
-```
+# Define the exact list of skills added by the expansion mission
+$ExpansionSkills = @(
+    "animation-systems",
+    "antigravity-resource-guardian",
+    "audit-ai-design-slop",
+    "audit-reference-originality",
+    "autofix",
+    "better-accessibility",
+    "better-colors",
+    "better-typography",
+    "better-writing",
+    "brainstorming",
+    "claude-api",
+    "cli-creator",
+    "cloudflare-deploy",
+    "code-review",
+    "coderabbit-config",
+    "design-taste-frontend",
+    "discernment-nudge",
+    "dispatching-parallel-agents",
+    "doc-coauthoring",
+    "docx",
+    "executing-plans",
+    "finishing-a-development-branch",
+    "frontend-design",
+    "gsd",
+    "gsd-execute",
+    "gsd-plan",
+    "gsd-verify",
+    "mcp-builder",
+    "pdf",
+    "pptx",
+    "prd",
+    "ralph",
+    "receiving-code-review",
+    "requesting-code-review",
+    "roo-code",
+    "security-best-practices",
+    "security-ownership-map",
+    "security-threat-model",
+    "sentry",
+    "skill-creator",
+    "systematic-debugging",
+    "test-driven-development",
+    "ui-ux-pro-max",
+    "using-git-worktrees",
+    "vercel-composition-patterns",
+    "verification-before-completion",
+    "web-design-guidelines",
+    "webapp-testing",
+    "winui-app",
+    "writing-plans",
+    "xlsx"
+)
 
-### Step 2: Remove Global Skills Manifest
-Delete the global `skills.json` configuration file:
-```powershell
-Remove-Item -Force "C:\Users\HP\.gemini\config\skills.json"
-```
+$GlobalSkillsDir = "C:\Users\HP\.gemini\config\skills"
 
-### Step 3: Remove Documentation Suite (Optional)
-If you wish to remove this documentation directory:
-```powershell
-Remove-Item -Recurse -Force "C:\Users\HP\.gemini\antigravity\scratch\Antigravity-Environment"
+foreach ($skill in $ExpansionSkills) {
+    $targetPath = Join-Path $GlobalSkillsDir $skill
+    if (Test-Path $targetPath) {
+        Remove-Item -Recurse -Force $targetPath
+        Write-Host "Surgically removed skill: $skill" -ForegroundColor Yellow
+    }
+}
+
+Write-Host "Rollback complete. All pre-existing skills, plugins, and MCP configurations remain intact." -ForegroundColor Green
 ```
 
 ---
 
-## 3. Impact Assessment of Rollback
+## 2. Reverting the Global Skills Manifest
 
-- **Preserved Intact:**
-  - All 42 original plugins in `~/.gemini/config/plugins/` will remain completely untouched.
-  - All original MCP servers and `mcp_config.json` will remain completely untouched.
-  - All existing configuration files and authentication tokens (Gmail OAuth) will remain completely untouched.
-- **Removed:**
-  - The 16 newly added global skills (`docx`, `xlsx`, `pdf`, `pptx`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`, etc.).
-  - The newly registered subagent types will revert upon session restart.
+If you wish to remove the global `skills.json` registration:
+```powershell
+Remove-Item -Force "C:\Users\HP\.gemini\config\skills.json" -ErrorAction SilentlyContinue
+```
+
+---
+
+## 3. Preserved Components Guarantee
+
+This surgical rollback guarantees that:
+- **All 42 pre-existing plugins** in `C:\Users\HP\.gemini\config\plugins\` remain 100% untouched.
+- **All 20 pre-existing MCP servers** and `mcp_config.json` remain 100% untouched.
+- **All user projects and workspace files** in `C:\Users\HP\.gemini\antigravity\scratch\` remain 100% untouched.
+- **All authentication tokens** and credentials remain 100% untouched.

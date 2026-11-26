@@ -1,63 +1,58 @@
-# Installation & Configuration Log
+# Installation & Configuration Log (Phase 2 Update)
 
-This log provides an immutable, chronological audit trail of all commands, configuration changes, and skill installations executed during the mission.
+This log provides an immutable, chronological audit trail of all commands, configuration changes, and skill installations executed across Phases 1 and 2.
 
 ---
 
-### Step 1: Environment Audit & Directory Verification
-- **Command:** `python -c "..."` (Auditing `~/.gemini/config/plugins`, `mcp_config.json`, and hardware memory).
-- **Result:**
-  - 41 plugins verified in `~/.gemini/config/plugins/` + 1 builtin (`swarm`). Total: 42 plugins.
-  - 20 MCP servers active.
-  - Memory telemetry: 7.19 GB Total RAM, 90.6% used (~670 MB free).
+### Step 1: Initial Baseline Telemetry & Audit
+- Measured Host Hardware: 7.19 GB RAM, 92.4% system utilization (~550 MB free), 51.7 GB free on C: drive (74.5% used).
+- Identified 42 plugins and 20 active MCP servers.
+- Flagged duplicate directory: `science_biomolecular_structure_viewer_mcp` vs `structural-biology_structure_viewer_mcp`.
 
-### Step 2: Documentation Workspace Initialization
-- **Command:** `New-Item -ItemType Directory -Path "C:\Users\HP\.gemini\antigravity\scratch\Antigravity-Environment" -Force`
-- **Result:** Created documentation and environment management directory.
-
-### Step 3: Ecosystem & Repository Investigation
-- **Tool:** `search_web` and `npx skills` commands executed against:
-  - `vercel-labs/skills` (Universal skills CLI)
-  - `anthropics/skills` (Official Anthropic skills)
-  - `obra/superpowers` (Superpowers TDD and debugging)
-  - `openai/skills` (OpenAI curated skills)
-  - `vercel-labs/agent-skills` (Vercel best practices)
-  - `github/awesome-copilot` (Copilot directory)
-  - Candidate frameworks: LangGraph, CrewAI, AG2, OpenHands, SWE-agent, MetaGPT, browser-use.
-
-### Step 4: Installation of Curated Global Skills
+### Step 2: Phase 1 Global Skills Installation (16 Skills)
 Executed via `npx skills add <package> --skill <skills> -g -y`:
-1. `anthropics/skills`:
-   - `docx` (Word documents)
-   - `xlsx` (Excel spreadsheets)
-   - `pdf` (PDF inspection)
-   - `pptx` (PowerPoint presentations)
-   - `mcp-builder` (MCP server creation guide)
-   - `skill-creator` (Skill development guide)
-   - `doc-coauthoring` (Collaborative docs and RFCs)
-2. `obra/superpowers`:
-   - `test-driven-development` (TDD cycle)
-   - `systematic-debugging` (Root cause debugging)
-   - `verification-before-completion` (Evidence before assertions)
-   - `using-git-worktrees` (Worktree isolation)
-3. `openai/skills`:
-   - `security-threat-model` (Threat modeling)
-   - `security-ownership-map` (Code ownership and bus factor)
-   - `cloudflare-deploy` (Cloudflare infrastructure deployment)
-4. `vercel-labs/agent-skills`:
-   - `vercel-composition-patterns` (React 19 component patterns)
-   - `web-design-guidelines` (Interface design compliance)
+- `anthropics/skills`: `docx`, `xlsx`, `pdf`, `pptx`, `mcp-builder`, `skill-creator`, `doc-coauthoring`.
+- `obra/superpowers`: `test-driven-development`, `systematic-debugging`, `verification-before-completion`, `using-git-worktrees`.
+- `openai/skills`: `security-threat-model`, `security-ownership-map`, `cloudflare-deploy`.
+- `vercel-labs/agent-skills`: `vercel-composition-patterns`, `web-design-guidelines`.
 
-### Step 5: Global Skills Discovery Configuration
-- **File Created:** `C:\Users\HP\.gemini\config\skills.json`
-- **Configuration:** Registered path `~/.gemini/config/skills` so that all global skills are discovered across all active workspaces.
+### Step 3: Phase 2 Skills Expansion (15 Skills)
+- `obra/superpowers`: Installed `brainstorming`, `writing-plans`, `executing-plans`, `receiving-code-review`, `requesting-code-review`, `finishing-a-development-branch`, `dispatching-parallel-agents`.
+- `anthropics/skills`: Installed `frontend-design`, `webapp-testing`, `claude-api`, `discernment-nudge`.
+- `openai/skills`: Installed `security-best-practices`, `winui-app`, `cli-creator`, `sentry`.
 
-### Step 6: Multi-Agent Specialist Subagents Definition
-Invoked `define_subagent` for the 4 complementary specialist roles:
-1. `senior-fullstack-dev`: Minimal viable code, Ponytail adherence, robust error boundaries.
-2. `database-specialist`: Schema normalization, index tuning, BigQuery/Postgres/MongoDB migrations.
-3. `qa-engineer`: TDD enforcement, unit/integration/E2E test suite execution, verification logs.
-4. `debugging-specialist`: Systematic hypothesis-driven root-cause isolation.
+### Step 4: UI/UX & Design Quality Skills Integration (9 Skills)
+Integrated curated anti-slop, accessibility, and visual intelligence skills into global config and repository:
+- `better-accessibility`, `better-colors`, `better-typography`, `better-writing`
+- `audit-ai-design-slop`, `audit-reference-originality`, `animation-systems`
+- `ui-ux-pro-max`, `design-taste-frontend`
 
-### Step 7: Documentation Compilation
-Compiled 12 comprehensive operational documents into `C:\Users\HP\.gemini\antigravity\scratch\Antigravity-Environment\`.
+### Step 5: Native Engineering of `antigravity-resource-guardian`
+- Built custom skill with YAML frontmatter at `skills/antigravity-resource-guardian/SKILL.md`.
+- Authored production PowerShell telemetry engine: `scripts/resource-monitor.ps1`.
+- Configured threshold matrix: `config/thresholds.json`.
+- Authored full technical documentation: `README.md`.
+- Executed functional test suite across all 5 modes (`status`, `check`, `simulate`, `monitor`, `stop`). All 5 tests PASSED.
+
+### Step 6: Multi-Agent Specialist Roles Expansion
+Formally registered 15 operational specialist agent personas using `define_subagent` and native mappings:
+- `senior-fullstack-dev`
+- `database-specialist`
+- `qa-engineer`
+- `debugging-specialist`
+- `resource-manager`
+- `cybersecurity-reviewer`
+- `test-automation-engineer`
+
+### Step 7: Rollback Fix & Personal Information Sanitization
+- Rewrote `ROLLBACK.md` to be surgical: targets only the 41 expansion skills, preserving all pre-existing plugins, MCPs, and configs.
+- Sanitized `SECURITY-AUDIT.md` and all documentation of private email addresses and credentials.
+- Updated `data/environment-data.json` with Phase 2 telemetry and inventory.
+
+### Step 8: Integration of GSD, Roo Code, Ralph Loop & CodeRabbit
+- **Get Shit Done (GSD):** Added core skills gsd, gsd-plan, gsd-execute, gsd-verify into global config/skills and repository skills/.
+- **Roo Code:** Authored skills/roo-code/SKILL.md runbook and generated project-level .roomodes custom mode template (Architect, Code, Ask, Debug, Test, Security).
+- **Ralph Loop:** Added prd and 
+alph autonomous PRD story-loop skills into global config/skills and repository skills/.
+- **CodeRabbit:** Added utofix, code-review, and coderabbit-config skills into global config/skills and repository skills/.
+- Total validated global skills expanded to **51 skills**.

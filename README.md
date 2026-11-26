@@ -1,33 +1,36 @@
-# Antigravity Environment — System Architecture & Expansion Reference
+# Antigravity Environment — System Architecture & Expansion Reference (Phase 2)
 
 Welcome to the unified documentation and operational control suite for your upgraded **Google Antigravity** environment.
 
-This directory contains the complete audit, verified inventory, architectural blueprints, security analysis, compatibility evaluations, and installation logs produced during the **Antigravity Existing Environment Expansion & Maximization Mission**.
+This repository contains the complete audit, verified inventory, architectural blueprints, security analysis, compatibility evaluations, custom resource guardian engineering, and installation logs produced during the **Antigravity Environment Expansion & Maximization Mission (Phases 1 & 2)**.
 
 ---
 
-## 📂 Documentation Structure
+## 📂 Documentation Suite Index
 
-| Document | Purpose |
+| Document | Purpose & Content |
 | :--- | :--- |
-| **[`EXISTING-INVENTORY.md`](./EXISTING-INVENTORY.md)** | Grounded baseline audit verifying the 42 installed plugins, 20 active MCP servers, and 350+ skills. |
-| **[`MISSING-CAPABILITIES.md`](./MISSING-CAPABILITIES.md)** | Gap analysis identifying high-leverage capabilities missing from the starting baseline. |
-| **[`NEW-SKILLS.md`](./NEW-SKILLS.md)** | Detailed specification of all 16 newly installed global skills (Anthropic, OpenAI, Superpowers, Vercel). |
+| **[`EXISTING-INVENTORY.md`](./EXISTING-INVENTORY.md)** | Grounded baseline audit verifying the 42 installed plugins, 20 active MCP servers, and 41 global skills. |
+| **[`MISSING-CAPABILITIES.md`](./MISSING-CAPABILITIES.md)** | Gap analysis identifying high-leverage capabilities missing from the starting baseline and evaluated candidates. |
+| **[`NEW-SKILLS.md`](./NEW-SKILLS.md)** | Comprehensive searchable index of all 41 installed global skills (Anthropic, OpenAI, Superpowers, Vercel, UI/UX Studio). |
+| **[`RESOURCE-GUARDIAN-REPORT.md`](./RESOURCE-GUARDIAN-REPORT.md)** | **[NEW]** Complete engineering report, test battery results, and telemetry analysis for the custom `antigravity-resource-guardian`. |
 | **[`NEW-MCP-SERVERS.md`](./NEW-MCP-SERVERS.md)** | MCP server evaluation, architectural analysis (Serena, GitHub MCP, remote SSE), and integration guidance. |
-| **[`AGENT-ARCHITECTURE.md`](./AGENT-ARCHITECTURE.md)** | Multi-agent coordination matrix establishing the 13 unified specialist agent roles and delegation rules. |
-| **[`SECURITY-AUDIT.md`](./SECURITY-AUDIT.md)** | Deep security posture review: token hygiene, Gmail scoped access, filesystem boundaries, and least privilege. |
+| **[`AGENT-ARCHITECTURE.md`](./AGENT-ARCHITECTURE.md)** | Multi-agent coordination matrix establishing the 15 unified specialist agent roles, budgets, and delegation rules. |
+| **[`SECURITY-AUDIT.md`](./SECURITY-AUDIT.md)** | Sanitized security posture review: token hygiene, OAuth boundaries, filesystem sandbox, and least privilege. |
 | **[`COMPATIBILITY-REPORT.md`](./COMPATIBILITY-REPORT.md)** | Cross-ecosystem evaluation of external agent frameworks (LangGraph, CrewAI, OpenHands, browser-use, MetaGPT). |
 | **[`RESOURCE-OPTIMIZATION.md`](./RESOURCE-OPTIMIZATION.md)** | 8 GB RAM efficiency blueprint, memory telemetry analysis, and background process minimization strategies. |
 | **[`AUTHENTICATION-PENDING.md`](./AUTHENTICATION-PENDING.md)** | Step-by-step authentication queue for pending services (Vercel, MongoDB Atlas, GitHub) with free-tier notes. |
-| **[`INSTALLATION-LOG.md`](./INSTALLATION-LOG.md)** | Immutable chronological record of every command, configuration edit, and skill installed. |
-| **[`ROLLBACK.md`](./ROLLBACK.md)** | Complete disaster recovery instructions to revert all changes cleanly to the original state. |
+| **[`INSTALLATION-LOG.md`](./INSTALLATION-LOG.md)** | Immutable chronological record of every command, configuration edit, and skill installed across Phases 1 & 2. |
+| **[`ROLLBACK.md`](./ROLLBACK.md)** | **[FIXED]** Surgical, component-by-component disaster recovery script that removes only expansion additions and preserves all pre-existing tools. |
 
 ---
 
 ## 🚀 Environment Overview
 
-- **Host Operating System:** Windows 11 / PowerShell 5.1 & Core
+- **Host Operating System:** Windows 11 (64-bit) / PowerShell 5.1 & Core
+- **Hardware Profile:** AMD Ryzen 3 (4 Cores / 8 Logical Threads), 7.19 GB Physical RAM, 512 GB SSD (C: Drive: 202.8 GB partition, 51.7 GB free)
 - **Node.js Environment:** v24.16.0 (npm/npx v11.13.0)
 - **Git Version:** v2.54.0.windows.1
-- **Available Hardware Resources:** 7.19 GB RAM (~670 MB free at start of mission)
-- **Primary Philosophy:** Maximum practical capability, zero fluff, token and memory efficiency, evidence-before-assertions engineering.
+- **Installed Global Skills:** 41 Verified Skills across Documents, QA/TDD, Security, UI/UX, Meta-Engineering, and DevOps.
+- **Specialist Multi-Agent System:** 15 Formal Specialist Roles Governed by Central Orchestration and Resource Management.
+- **Resource Footprint:** 0 MB persistent background daemon memory added.

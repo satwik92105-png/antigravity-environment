@@ -1,0 +1,35 @@
+{
+  "system": {
+    "total_physical_ram_gb": 7.19,
+    "architecture": "x64",
+    "processor": "AMD Ryzen 3",
+    "os": "Windows 11"
+  },
+  "ram_thresholds": {
+    "normal_max_pct": 40.0,
+    "caution_min_pct": 40.0,
+    "caution_max_pct": 45.0,
+    "high_caution_min_pct": 45.0,
+    "high_caution_max_pct": 50.0,
+    "pause_threshold_pct": 50.0,
+    "baseline_adaptation": {
+      "note": "When Windows baseline is already >50%, track Antigravity additional consumption instead of absolute total.",
+      "max_antigravity_ram_mb": 512.0
+    }
+  },
+  "disk_thresholds": {
+    "warning_pct": 75.0,
+    "critical_pct": 80.0,
+    "min_free_gb": 15.0
+  },
+  "cpu_thresholds": {
+    "warning_pct": 80.0,
+    "critical_pct": 90.0,
+    "sustained_checks": 3
+  },
+  "monitoring": {
+    "default_interval_seconds": 10,
+    "idle_interval_seconds": 30,
+    "log_retention_days": 3
+  }
+}
